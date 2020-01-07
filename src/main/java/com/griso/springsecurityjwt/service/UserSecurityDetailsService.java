@@ -1,6 +1,6 @@
-package com.griso.springsecurityjwt.config;
+package com.griso.springsecurityjwt.service;
 
-import com.griso.springsecurityjwt.service.IUserService;
+import com.griso.springsecurityjwt.model.UserSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

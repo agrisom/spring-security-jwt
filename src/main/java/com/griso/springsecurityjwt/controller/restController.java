@@ -1,12 +1,20 @@
 package com.griso.springsecurityjwt.controller;
 
-import org.springframework.stereotype.Controller;
+import com.griso.springsecurityjwt.model.AuthenticationRequest;
+import com.griso.springsecurityjwt.service.IAuthenticationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
-@Controller("rest")
 public class restController {
+
+    @Autowired
+    private IAuthenticationService authService;
 
     @GetMapping("/public")
     public String getPublicContent() {
@@ -21,5 +29,10 @@ public class restController {
     @GetMapping("/admin")
     public String getAdminContent() {
         return "Private (Only ADMIN users)";
+    }
+
+    @PostMapping("/authenticate")
+    public Map<String, String> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) {
+        return authService.authenticate(authenticationRequest);
     }
 }

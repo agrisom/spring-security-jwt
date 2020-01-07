@@ -1,4 +1,4 @@
-package com.griso.springsecurityjwt.config;
+package com.griso.springsecurityjwt.model;
 
 import com.griso.springsecurityjwt.dto.UserDto;
 import lombok.Data;
